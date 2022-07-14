@@ -4,15 +4,15 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import static games.lotto.LottoGameConfiguration.*;
+
 public class RandomNumbersGenerator {
 
-    public Set<Integer> draw(int howMuchRandomNumbers) {
-        int min = 1;
-        int max = 99;
+    public Set<Integer> draw() {
         Random rand = new Random();
         Set<Integer> drawnNumbers = new HashSet<>();
-        while (drawnNumbers.size() < howMuchRandomNumbers) {
-            drawnNumbers.add(rand.nextInt(max - min) + min);
+        while (drawnNumbers.size() < HOW_MANY_NUMBERS_FROM_USER) {
+            drawnNumbers.add(rand.nextInt(UPPER_BOUND - LOWER_BOUND) + LOWER_BOUND);
         }
         return drawnNumbers;
     }
